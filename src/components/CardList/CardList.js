@@ -1,17 +1,29 @@
 import React from "react";
-import { UNAPI } from "./../../BLL/index";
+import { UNAPI } from "../../BLL/index";
+import Card from "./Card";
 
-const CardList = () => {
-  const triggerPhotos = () => {
-    const response = UNAPI.photos()
-return response.map(()=>{})
-  };
+class CardList extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      cards: undefined
+    };
+  }
 
-  return (
-    <div>
-      <button onClick={UNAPI.photos()}></button>
-    </div>
-  );
-};
+  componentDidMount() {
+    const response = UNAPI.photos();
+    console.log("TYPEOF RESPONSE before", response);
+    response.then(resp => {
+      console.log("INSIDE OF THEN", resp);
+      const out = resp.map(item => (
+        <Card src={item.urls.small} altDesc={item.alt_description} />
+      ));
+      this.setState({ cards: out });
+    });
+  }
+  render() {
+    return <div>{this.state.cards}</div>;
+  }
+}
 
 export default CardList;

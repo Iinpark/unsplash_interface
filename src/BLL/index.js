@@ -6,11 +6,11 @@ const unsplash = new Unsplash({
 
 export const UNAPI = {
   photos: () => {
-    unsplash.photos
+    const json = unsplash.photos
       .listPhotos(2, 15, "latest")
       .then(toJson)
-      .then(json => {
-        console.log("BLL", json);
-      });
+      .then(json => json);
+    console.log("BLL", json);
+    return json;
   }
 };
