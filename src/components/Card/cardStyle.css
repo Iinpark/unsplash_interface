@@ -1,0 +1,40 @@
+.card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  margin: 5px;
+  height: min-content;
+  width: min-content;
+  z-index: 9;
+}
+
+.information-overlay {
+  position: absolute;
+  bottom: 50;
+  visibility: hidden;
+  color: #fff;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  
+}
+
+.card:hover .information-overlay {
+  visibility: visible;
+    transition: visibility 2s;
+}
+
+.card:hover .image {
+  filter: blur(5px);
+  transition: filter 0.2s;
+}
+.information-button {
+  background-color: transparent;
+  border: none;
+  margin-left: 10px;
+  margin-right: 10px;
+}

@@ -1,6 +1,6 @@
 import React from "react";
 import { UNAPI } from "../../BLL/index";
-import Card from "./Card";
+import Card from "../Card/Card.jsx";
 
 class CardList extends React.Component {
   constructor(props) {

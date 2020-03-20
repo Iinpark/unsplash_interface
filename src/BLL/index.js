@@ -7,7 +7,7 @@ const unsplash = new Unsplash({
 export const UNAPI = {
   photos: () => {
     const json = unsplash.photos
-      .listPhotos(2, 15, "latest")
+      .listPhotos(2, 1, "latest")
       .then(toJson)
       .then(json => json);
     console.log("BLL", json);
