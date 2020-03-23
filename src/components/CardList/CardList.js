@@ -12,8 +12,9 @@ class CardList extends React.Component {
   }
 
   componentDidMount() {
-    const response = UNAPI.photos();
-    console.log("TYPEOF RESPONSE before", response);
+    const response = UNAPI.photos()
+    // setInterval(()=>{
+    console.log("TYPEOF RESPONSE before", response)
     response.then(resp => {
       console.log("INSIDE OF THEN", resp);
       const out = resp.map(item => (
@@ -24,7 +25,8 @@ class CardList extends React.Component {
         />
       ));
       this.setState({ cards: out });
-    });
+    })
+    
   }
   render() {
     return <div className="root">{this.state.cards}</div>;

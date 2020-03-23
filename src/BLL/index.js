@@ -22,6 +22,7 @@ export const UNAPI = {
       .then(link => {
         console.log(typeof link);
 
+        
         window.open(link.url);
       });
     unsplash.photos.downloadPhoto(json);
