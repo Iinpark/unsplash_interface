@@ -20,12 +20,11 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  
 }
 
 .card:hover .information-overlay {
   visibility: visible;
-    transition: visibility 2s;
+  transition: visibility 2s;
 }
 
 .card:hover .image {
@@ -33,8 +32,15 @@
   transition: filter 0.2s;
 }
 .information-button {
+  color:white;
+  font-size: 20px;
   background-color: transparent;
   border: none;
   margin-left: 10px;
   margin-right: 10px;
+}
+
+.information-button:hover {
+  font-size: 30px;
+  transition: font-size 0.2s;
 }

@@ -1,0 +1,6 @@
+.root{
+    align-self: center;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
