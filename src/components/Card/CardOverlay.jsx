@@ -1,11 +1,10 @@
-import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faHeart,
-  faExpand,
   faDownload,
-  faCameraRetro
+  faExpand,
+  faHeart
 } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React from "react";
 import { UNAPI } from "./../../BLL/index";
 import "./cardOverlayStyle.css";
 

@@ -13,10 +13,7 @@ class CardList extends React.Component {
 
   componentDidMount() {
     const response = UNAPI.photos()
-    // setInterval(()=>{
-    console.log("TYPEOF RESPONSE before", response)
     response.then(resp => {
-      console.log("INSIDE OF THEN", resp);
       const out = resp.map(item => (
         <Card
           src={item.urls.small}
