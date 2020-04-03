@@ -7,27 +7,28 @@ import {
   faHeart,
   faHamsa
 } from "@fortawesome/free-solid-svg-icons";
+import {Link} from 'react-router-dom'
 
 const AppHeader = () => {
   return (
     <div className="mainWrapper">
-      <div className="logoWrapper">
-        <FontAwesomeIcon icon={faHamsa}  />
+      <Link to="/" className="logoWrapper">
+        <FontAwesomeIcon icon={faHamsa} />
         <span className="logoText"> Image Stock</span>
-      </div>
+      </Link>
       <div className="navigation">
-        <div className="navigation-button">
+        <Link to='/search' className="navigation-button">
           <FontAwesomeIcon color="white" icon={faSearch} />
           <span>Поиск</span>
-        </div>
-        <div className="navigation-button">
+        </Link>
+        <Link className="navigation-button">
           <FontAwesomeIcon color="white" icon={faHeart} />
           <span>Избранное</span>
-        </div>
-        <div className="navigation-button">
+        </Link>
+        <Link className="navigation-button">
           <FontAwesomeIcon color="white" icon={faHistory} />
           <span>История поиска</span>
-        </div>
+        </Link>
       </div>
     </div>
   );
