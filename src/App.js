@@ -1,12 +1,10 @@
 import React from "react";
 import { Provider } from "react-redux";
-
+import { BrowserRouter } from "react-router-dom";
 import "./App.css";
 import AppHeader from "./components/AppHeader/AppHeader";
-import CardList from "./components/Lists/CardList";
-import SearchHeader from "./components/SearchScreen/SearchHeader";
 import { Store } from "./redux/store";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import RootRouter from "./navigation/RootRouter";
 
 function App() {
   return (
@@ -18,14 +16,7 @@ function App() {
           </div>
 
           <div className="content">
-            <Switch>
-              <Route path="/search">
-                <SearchHeader />
-              </Route>
-              <Route path="/">
-                <CardList />
-              </Route>
-            </Switch>
+            <RootRouter />
             <div className="manifesto">
               <span>©2020</span>
               <span>⁕Made on Earth by Humans⁕</span>

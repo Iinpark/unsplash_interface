@@ -30,7 +30,7 @@ class SearchHeader extends React.Component {
   }
 
   viewCollection() {
-    //навигируем на <CollectionPhotoList />;
+    //TODO:навигируем на <CollectionPhotoList />;
     // и прокидываем туда пропс с json объектом
   }
 

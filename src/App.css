@@ -3,9 +3,9 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
-.App{
+.App {
   display: flexbox;
-  flex: 1
+  flex: 1;
 }
 .App-header {
   background-color: #282c34;
@@ -24,6 +24,7 @@
   width: 100%;
 }
 .content {
+  width: 100%;
   padding-top: 37px;
   display: flex;
   flex-direction: column;
@@ -34,7 +35,7 @@
 .manifesto {
   display: flex;
   width: 100%;
-  font-family: monospace;
+  font-family: Consolas, monospace;
   font-size: 14px;
   color: rgb(158, 158, 158);
   background-color: black;
