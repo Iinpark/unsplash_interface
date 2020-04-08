@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
-import CardList from "../Lists/CardList";
 import SearchHeader from "./SearchHeader";
+import CardList from "./../components/Lists/CardList";
 
 class SearchResultsScreen extends React.Component {
   constructor(props) {
@@ -15,7 +15,8 @@ class SearchResultsScreen extends React.Component {
   }
 
   componentWillUnmount() {
-    this.state.search_results = undefined 
+    //TODO: обнуление результатов поиска
+    this.state.search_results = undefined;
     console.log("UNMOUNTING", this.state.search_results);
   }
 

@@ -25,7 +25,7 @@ const AppHeader = () => {
           <FontAwesomeIcon color="white" icon={faHeart} />
           <span>Избранное</span>
         </Link>
-        <Link className="navigation-button">
+        <Link to='/history' className="navigation-button">
           <FontAwesomeIcon color="white" icon={faHistory} />
           <span>История поиска</span>
         </Link>
