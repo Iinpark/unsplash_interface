@@ -11,7 +11,7 @@ import {Link} from 'react-router-dom'
 
 const AppHeader = () => {
   return (
-    <div className="mainWrapper">
+    <div className="container-fluid mainWrapper">
       <Link to="/" className="logoWrapper">
         <FontAwesomeIcon icon={faHamsa} />
         <span className="logoText"> Image Stock</span>

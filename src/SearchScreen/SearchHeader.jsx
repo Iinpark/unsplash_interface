@@ -32,7 +32,7 @@ class SearchHeader extends React.Component {
 
   render() {
     return (
-      <div className="search-header-wrapper">
+      <div className="search-header-wrapper container-fluid">
         {/* <form action="submit"> */}
         <input
           className="search-text-input"

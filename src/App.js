@@ -10,7 +10,7 @@ function App() {
   return (
     <Provider store={Store}>
       <BrowserRouter>
-        <div className="App">
+        
           <div className="header">
             <AppHeader />
           </div>
@@ -22,7 +22,7 @@ function App() {
               <span>⁕Made on Earth by Humans⁕</span>
             </div>
           </div>
-        </div>
+        
       </BrowserRouter>
     </Provider>
   );

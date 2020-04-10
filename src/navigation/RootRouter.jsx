@@ -14,7 +14,7 @@ export default class RootRouter extends React.PureComponent {
         <Route path="/history">
           <SearchHistoryScreen />
         </Route>
-        <Route path="/">
+        <Route exact path="/">
           <HomeScreen />
         </Route>
       </Switch>
