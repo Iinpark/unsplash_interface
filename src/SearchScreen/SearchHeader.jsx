@@ -12,7 +12,7 @@ class SearchHeader extends React.Component {
     super(props);
     this.state = {
       collectionsList: undefined,
-      searchKeyword: undefined
+      searchKeyword: ""
     };
   }
 
@@ -64,8 +64,8 @@ class SearchHeader extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    search_results: state.search_results,
-    is_pending: state.is_pending
+    search_results: state.search.search_results,
+    is_pending: state.search.is_pending
   };
 };
 

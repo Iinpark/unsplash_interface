@@ -7,7 +7,7 @@ class SearchResultsScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      search_results: undefined
+      search_results: undefined,
     };
   }
   static getDerivedStateFromProps(props) {
@@ -30,9 +30,9 @@ class SearchResultsScreen extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    search_results: state.search_results
+    search_results: state.search.search_results,
   };
 };
 export default connect(mapStateToProps)(SearchResultsScreen);

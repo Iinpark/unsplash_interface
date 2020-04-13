@@ -1,7 +1,7 @@
 import { UNAPI } from "./../BLL/index";
 
 const isEmpty = (str) => {
-  if (str.trim() == "") return true;
+  if (str.trim() === "") return true;
 
   return false;
 };

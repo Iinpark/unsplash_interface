@@ -1,16 +1,17 @@
 import {
   faDownload,
   faExpand,
-  faHeart
+  faHeart,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
+import { connect } from "react-redux";
 import { UNAPI } from "./../../BLL/index";
 import "./cardOverlayStyle.css";
+import { actions } from "../../redux/favoritesReducer";
 
-const CardOverlay = ({ json }) => {
+const CardOverlay = ({ json, toggleFavorite }) => {
   const user = json.user;
-
   return (
     <div className="card-overlay">
       <div className="profile-info">
@@ -25,7 +26,12 @@ const CardOverlay = ({ json }) => {
         </div>
       </div>
       <div className="information-buttons">
-        <button className="information-button">
+        <button
+          className="information-button"
+          onClick={() => {
+            toggleFavorite(json);
+          }}
+        >
           <FontAwesomeIcon className="information-icon" icon={faHeart} />
         </button>
         <button className="information-button">
@@ -44,4 +50,12 @@ const CardOverlay = ({ json }) => {
   );
 };
 
-export default CardOverlay;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    toggleFavorite: (json) => {
+      dispatch(actions.toggleFavorite(json));
+    },
+  };
+};
+
+export default connect(null, mapDispatchToProps)(CardOverlay);

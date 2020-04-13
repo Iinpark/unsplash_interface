@@ -7,7 +7,7 @@ const Card = ({ src, altDesc, json }) => {
     <div className="card">
       <img src={src} alt={altDesc} className="image" />
       <div className="information-overlay">
-        <CardOverlay json={json}/>
+        <CardOverlay json={json} />
       </div>
     </div>
   );

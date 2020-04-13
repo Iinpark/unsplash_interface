@@ -1,5 +1,11 @@
-import { createStore, applyMiddleware } from "redux";
+import { createStore, applyMiddleware, combineReducers } from "redux";
 import thunk from "redux-thunk";
 import { searchReducer } from "./searchReducer";
+import { favoritesReducer } from './favoritesReducer';
 
-export let Store = createStore(searchReducer, applyMiddleware(thunk));
+const rootReducer = combineReducers({
+  search: searchReducer,
+  favorites: favoritesReducer
+});
+
+export let Store = createStore(rootReducer, applyMiddleware(thunk));

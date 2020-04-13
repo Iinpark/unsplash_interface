@@ -14,7 +14,7 @@ const SearchHistoryHeader = ({search_history_list}) => {
 
 const mapStateToProps = (state) => {
   return {
-    search_history_list: state.search_keywords,
+    search_history_list: state.search.search_keywords,
   };
 };
 
