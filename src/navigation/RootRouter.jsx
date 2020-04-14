@@ -18,7 +18,6 @@ export default class RootRouter extends React.PureComponent {
         <Route path="/favorites">
           <FavoritesScreen />
         </Route>
-
         <Route exact path="/">
           <HomeScreen />
         </Route>

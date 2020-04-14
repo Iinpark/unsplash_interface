@@ -11,6 +11,7 @@ export const actions = {
     };
   },
 
+  //currently not using
   deleteFavorite: (photoID) => {
     return {
       type: types.DELETE_FAVORITE,
@@ -30,18 +31,21 @@ export const favoritesReducer = (state = initialState, action) => {
       const isExisted = state.favoritesList.some((favoritesListItem) =>
         compareFavoritesItem(favoritesListItem, action)
       );
-      return isExisted
-        ? Object.assign({}, state, {
-            favoritesList: state.favoritesList.filter(
-              (favoritesListItem) =>
-                !compareFavoritesItem(favoritesListItem, action)
-            ),
-            total: state.total - 1,
-          })
-        : Object.assign({}, state, {
-            favoritesList: [...state.favoritesList, action.photoJson],
-            total: state.total + 1,
-          });
+      const likedPhoto = action.photoJson;
+      if (isExisted) {
+        delete likedPhoto.isLiked;
+        return Object.assign({}, state, {
+          favoritesList: state.favoritesList.filter(
+            (favoritesListItem) =>
+              !compareFavoritesItem(favoritesListItem, action)
+          ),
+        });
+      } else {
+        likedPhoto.isLiked = true;
+        return Object.assign({}, state, {
+          favoritesList: [...state.favoritesList, likedPhoto],
+        });
+      }
     }
     default:
       return state;

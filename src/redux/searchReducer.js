@@ -15,7 +15,6 @@ const types = {
 
 export const searchActions = {
   searchSuccsess: (response) => {
-    console.log("SEARCH RESULTS", response);
     return { type: types.SEARCH_SUCCESS, results: response.results };
   },
   searchFailure: () => {
@@ -39,7 +38,7 @@ export const searchActions = {
           dispatch(searchActions.searchSuccsess(resp));
         })
         .catch((error) => {
-          alert("неудача при поиске");
+          alert("неудача при поиске", error);
           dispatch(searchActions.searchFailure());
         });
     };

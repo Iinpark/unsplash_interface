@@ -1,11 +1,18 @@
-import { createStore, applyMiddleware, combineReducers } from "redux";
+import { createStore, applyMiddleware, combineReducers, compose } from "redux";
 import thunk from "redux-thunk";
 import { searchReducer } from "./searchReducer";
-import { favoritesReducer } from './favoritesReducer';
+import { favoritesReducer } from "./favoritesReducer";
+import { photoReducer } from "./photoReducer";
 
 const rootReducer = combineReducers({
   search: searchReducer,
-  favorites: favoritesReducer
+  favorites: favoritesReducer,
+  photos: photoReducer,
 });
 
-export let Store = createStore(rootReducer, applyMiddleware(thunk));
+const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+export let Store = createStore(
+  rootReducer,
+  composeEnhancer(applyMiddleware(thunk))
+);

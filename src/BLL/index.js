@@ -8,7 +8,7 @@ const unsplash = new Unsplash({
 export const UNAPI = {
   photos: () => {
     const json = unsplash.photos
-      .listPhotos(2, 10, "latest")
+      .listPhotos(1, 10, "latest")
       .then(toJson)
       .then(json => json);
     return json;
