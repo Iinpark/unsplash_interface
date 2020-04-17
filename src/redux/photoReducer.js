@@ -29,7 +29,10 @@ export const fetchPhotoActions = {
 };
 
 const initialState = {
+  //list of all photos on HomeScreen | array
   allPhotos: undefined,
+  //photo that user currently viewing on PhotosScreen | object
+  currentPhoto: undefined,
 };
 export const photoReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -37,6 +40,7 @@ export const photoReducer = (state = initialState, action) => {
       return {
         ...state,
         allPhotos: action.photos,
+        currentPhoto: action.photos[0],
       };
     default:
       return state;

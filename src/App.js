@@ -10,19 +10,17 @@ function App() {
   return (
     <Provider store={Store}>
       <BrowserRouter>
-        
-          <div className="header">
-            <AppHeader />
-          </div>
+        <div className="header">
+          <AppHeader />
+        </div>
 
-          <div className="content">
-            <RootRouter />
-            <div className="manifesto">
-              <span>©2020</span>
-              <span>⁕Made on Earth by Humans⁕</span>
-            </div>
+        <div className="content">
+          <RootRouter />
+          <div className="manifesto">
+            <span>©2020</span>
+            <span>⁕Crafted on Earth by Humans⁕</span>
           </div>
-        
+        </div>
       </BrowserRouter>
     </Provider>
   );

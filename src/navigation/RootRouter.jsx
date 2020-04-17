@@ -4,6 +4,7 @@ import SearchResultsScreen from "../SearchScreen/SearchResultsScreen";
 import HomeScreen from "./../HomeScreen/HomeScreen";
 import SearchHistoryScreen from "../SearchHistoryScreen/SearchHistoryScreen";
 import FavoritesScreen from "./../FavoritesScreen/FavoritesScreen";
+import PhotosScreen from "../PhotosScreen/PhotosScreen";
 
 export default class RootRouter extends React.PureComponent {
   render() {
@@ -20,6 +21,9 @@ export default class RootRouter extends React.PureComponent {
         </Route>
         <Route exact path="/">
           <HomeScreen />
+        </Route>
+        <Route path="/photo">
+          <PhotosScreen />
         </Route>
       </Switch>
     );
