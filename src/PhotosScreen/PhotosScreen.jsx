@@ -11,17 +11,20 @@ const userProfilePlacehoder =
   "https://images.unsplash.com/profile-fb-1546918339-0cab0a15f6d6.jpg?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&cs=tinysrgb&fit=crop&h=128&w=128";
 
 class PhotosScreen extends React.Component {
+
+
   render() {
     console.log("PHOTOS SCREEN", this.props.currentPhoto);
     const json = this.props.currentPhoto;
     return (
       <div className={styles.photosScreenWrapper}>
-        <div
-          className={styles.photosScreenBackground}
-          style={{ backgroundImage: `url(${photoPlaceholder})` }}
-          // src={photoPlaceholder} //json?.urls?.regular
-          // alt=""
-        ></div>
+        <div className={styles.photosScreenBackground}>
+          <img
+            src={photoPlaceholder} //json?.urls?.regular
+            alt="beautyful background"
+          />
+        </div>
+
         <section className={styles.photosScreenOverlay}>
           <div className={styles.photoUpperButtons}>
             <div className={styles.profileInfo}>
@@ -44,6 +47,13 @@ class PhotosScreen extends React.Component {
             </div>
           </div>
           <img className={styles.photo} src={photoPlaceholder} alt="." />
+
+          <div className={styles.relatedTags}>
+            <span>Похожие теги</span>
+            <div>
+             <span>Пример тега</span>
+            </div>
+          </div>
         </section>
 
         <section>
@@ -55,8 +65,6 @@ class PhotosScreen extends React.Component {
 }
 
 const mapState = (state) => {
-  console.log("PHOTOS SCREEN", state);
-
   return {
     currentPhoto: state.photos.currentPhoto,
   };

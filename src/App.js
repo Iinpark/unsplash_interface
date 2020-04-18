@@ -17,8 +17,8 @@ function App() {
         <div className="content">
           <RootRouter />
           <div className="manifesto">
-            <span>©2020</span>
-            <span>⁕Crafted on Earth by Humans⁕</span>
+            <span>2020</span>
+            <span>⁕Made on Earth for Humans⁕</span>
           </div>
         </div>
       </BrowserRouter>
