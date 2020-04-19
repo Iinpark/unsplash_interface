@@ -1,4 +1,5 @@
 .mainWrapper {
+  position: relative;
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -7,7 +8,7 @@
 }
 
 .logoWrapper {
-  background-color: white;
+color: white;
   position: left;
   display: inline-block;
   height: min-content;

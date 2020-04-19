@@ -1,0 +1,7 @@
+.root{
+    align-self: center;
+    justify-content: space-evenly;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
