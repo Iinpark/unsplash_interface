@@ -8,13 +8,17 @@ const types = {
 
   SET_CURRENT_PHOTO: "SET_CURRENT_PHOTO",
   SET_CURRENT_PHOTO_SUCCESS: "SET_CURRENT_PHOTO_SUCCESS",
+
+  GET_RELATED_PHOTOS: "GET_RELATED_PHOTOS",
+  GET_RELATED_PHOTOS_PENDING: "GET_RELATED_PHOTOS_PENDING",
+  GET_RELATED_PHOTOS_SUCCESS: "GET_RELATED_PHOTOS_SUCCESS",
 };
 
 export const photoActions = {
   fetchSuccess: (photos) => {
     return { type: types.FETCH_SUCCESS, photos: photos };
   },
-  setCurrentPhotoSuccsess: (photo) => {
+  setCurrentPhotoSuccess: (photo) => {
     return { type: types.SET_CURRENT_PHOTO_SUCCESS, currentPhoto: photo };
   },
 
@@ -22,7 +26,6 @@ export const photoActions = {
     return (dispatch) => {
       UNAPI.photos()
         .then((resp) => {
-          console.log("photoActions", resp);
           dispatch(photoActions.fetchSuccess(resp));
         })
         .catch((error) => {
@@ -30,14 +33,29 @@ export const photoActions = {
         });
     };
   },
-
   setCurrentPhoto: (id) => {
     return (dispatch) => {
       UNAPI.getPhoto(id).then((json) => {
-        console.log("SET CURRENT PHOTO", json);
-        dispatch(photoActions.setCurrentPhotoSuccsess(json));
+        dispatch(photoActions.setCurrentPhotoSuccess(json),
+        dispatch(photoActions.getRelatedPhotos(json.alt_description))
+        );
       });
     };
+  },
+
+  getRelatedPhotos: (keyword) => {
+    return (dispatch) => {
+      dispatch(photoActions.getRelatedPhotosPending());
+      UNAPI.searchPhotos(keyword).then((response) => {
+        dispatch(photoActions.getRelatedPhotosSuccess(response.results));
+      });
+    };
+  },
+  getRelatedPhotosSuccess: (photos) => {
+    return { type: types.GET_RELATED_PHOTOS_SUCCESS, relatedPhotos: photos };
+  },
+  getRelatedPhotosPending: () => {
+    return { type: types.GET_RELATED_PHOTOS_PENDING };
   },
 };
 
@@ -46,6 +64,8 @@ const initialState = {
   allPhotos: undefined,
   //a photo that user currently viewing on PhotosScreen | object
   currentPhoto: undefined,
+  relatedPhotos: undefined,
+  isRelatedPhotosPending: true,
 };
 export const photoReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -59,6 +79,13 @@ export const photoReducer = (state = initialState, action) => {
       return {
         ...state,
         currentPhoto: action.currentPhoto,
+      };
+
+    case types.GET_RELATED_PHOTOS_SUCCESS:
+      return {
+        ...state,
+        relatedPhotos: action.relatedPhotos,
+        isRelatedPhotosPending: false,
       };
     default:
       return state;

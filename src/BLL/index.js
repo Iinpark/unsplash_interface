@@ -7,7 +7,7 @@ const unsplash = new Unsplash({
 
 export const UNAPI = {
   getPhoto: (id) => {
-    return unsplash.photos.getPhoto(id)
+    return unsplash.photos.getPhoto(id).then(toJson);
   },
   photos: () => {
     const json = unsplash.photos
@@ -33,7 +33,6 @@ export const UNAPI = {
       .listCollections(1, 10, "popular")
       .then(toJson)
       .then((json) => {
-        console.log("LIST COLLECTIONS", json);
         return json;
       });
     return json;

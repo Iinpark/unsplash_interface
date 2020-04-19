@@ -16,7 +16,7 @@
   background-position: center;
   background-repeat: no-repeat;
   z-index: -1;
-  border: 1px solid black;
+  border: 0.1px solid transparent;
 }
 .photosScreenBackground img {
   width: 100%;

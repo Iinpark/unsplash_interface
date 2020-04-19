@@ -5,10 +5,13 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
+import { Link } from "react-router-dom";
+
 import { connect } from "react-redux";
 import { UNAPI } from "./../../BLL/index";
 import "./cardOverlayStyle.css";
 import { actions } from "../../redux/favoritesReducer";
+import { photoActions } from "./../../redux/photoReducer";
 
 class CardOverlay extends React.Component {
   constructor(props) {
@@ -16,6 +19,11 @@ class CardOverlay extends React.Component {
     this.state = {
       isLiked: this.props.json.isLiked,
     };
+  }
+
+  onViewPhoto() {
+    const id = this.props.json.id;
+    this.props.viewPhoto(id);
   }
 
   render() {
@@ -44,9 +52,13 @@ class CardOverlay extends React.Component {
           >
             <FontAwesomeIcon className="information-icon" icon={faHeart} />
           </button>
-          <button className="information-button">
+          <Link
+            to="/photo"
+            className="information-button"
+            onClick={this.onViewPhoto.bind(this)}
+          >
             <FontAwesomeIcon className="information-icon" icon={faExpand} />
-          </button>
+          </Link>
           <button
             className="information-button"
             onClick={() => {
@@ -65,6 +77,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     toggleFavorite: (json) => {
       dispatch(actions.toggleFavorite(json));
+    },
+    viewPhoto: (id) => {
+      dispatch(photoActions.setCurrentPhoto(id));
     },
   };
 };
