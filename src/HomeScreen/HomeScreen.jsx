@@ -1,7 +1,7 @@
 import React from "react";
 import CardList from "../components/Lists/CardList";
 import { connect } from "react-redux";
-import { fetchPhotoActions } from "./../redux/photoReducer";
+import { photoActions } from "./../redux/photoReducer";
 
 class HomeScreen extends React.Component {
   componentDidMount() {
@@ -24,7 +24,7 @@ const mapState = (state) => {
 const mapDispatch = (dispatch) => {
   return {
     fetchAllPhotos: () => {
-      dispatch(fetchPhotoActions.fetchAllPhotos());
+      dispatch(photoActions.fetchAllPhotos());
     },
   };
 };

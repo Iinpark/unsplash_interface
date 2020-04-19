@@ -78,6 +78,7 @@
   justify-content: right;
 }
 .upperButtons button {
+  color: white;
   margin: 5px;
 }
 .upperButtons button:active {

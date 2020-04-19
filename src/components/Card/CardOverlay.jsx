@@ -18,21 +18,8 @@ class CardOverlay extends React.Component {
     };
   }
 
-  // componentDidMount() {
-  //   const isLiked = this.props.favoritesList.some((element) => {
-  //     return element.id === this.props.json.id;
-  //   });
-  //   if (isLiked) {
-  //     this.setState({
-  //       isLiked: true,
-  //     });
-  //   }
-  // }
-
   render() {
-    console.log("OVERLAY", this.props.json);
-    
-    let isLiked = this.props.json?.isLiked 
+    let isLiked = this.props.json?.isLiked;
     const user = this.props.json.user;
     return (
       <div className="card-overlay">

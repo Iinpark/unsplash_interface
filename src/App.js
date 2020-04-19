@@ -18,7 +18,9 @@ function App() {
           <RootRouter />
           <div className="manifesto">
             <span>2020</span>
-            <span>⁕Made on Earth for Humans⁕</span>
+            <a href="https://youtu.be/A0FZIwabctw" title="Узнать что это значит" target='blank'>
+              ⁕Made on Earth for Humans⁕
+            </a>
           </div>
         </div>
       </BrowserRouter>

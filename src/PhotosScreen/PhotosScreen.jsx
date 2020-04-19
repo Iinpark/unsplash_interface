@@ -13,6 +13,17 @@ const userProfilePlacehoder =
 class PhotosScreen extends React.Component {
 
 
+  TagList(){
+    return (
+      <div className={styles.relatedTags}>
+        <span>Похожие теги</span>
+        <div>
+          <span>Пример тега</span>
+        </div>
+      </div>
+    );
+  }
+
   render() {
     console.log("PHOTOS SCREEN", this.props.currentPhoto);
     const json = this.props.currentPhoto;
@@ -48,12 +59,8 @@ class PhotosScreen extends React.Component {
           </div>
           <img className={styles.photo} src={photoPlaceholder} alt="." />
 
-          <div className={styles.relatedTags}>
-            <span>Похожие теги</span>
-            <div>
-             <span>Пример тега</span>
-            </div>
-          </div>
+{this.TagList()}
+        
         </section>
 
         <section>
