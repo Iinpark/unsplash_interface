@@ -29,10 +29,6 @@ const AppHeader = () => {
           <FontAwesomeIcon color="white" icon={faHistory} />
           <span>История поиска</span>
         </Link>
-        <Link to="/photo" className="navigation-button">
-          <FontAwesomeIcon color="white" icon={faHistory} />
-          <span>PHOTO SCREEN</span>
-        </Link>
       </div>
     </div>
   );
