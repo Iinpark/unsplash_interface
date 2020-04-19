@@ -10,19 +10,19 @@ function App() {
   return (
     <Provider store={Store}>
       <BrowserRouter>
-        
-          <div className="header">
-            <AppHeader />
-          </div>
+        <div className="header">
+          <AppHeader />
+        </div>
 
-          <div className="content">
-            <RootRouter />
-            <div className="manifesto">
-              <span>©2020</span>
-              <span>⁕Made on Earth by Humans⁕</span>
-            </div>
+        <div className="content">
+          <RootRouter />
+          <div className="manifesto">
+            <span>2020</span>
+            <a href="https://youtu.be/A0FZIwabctw" title="Узнать что это значит" target='blank'>
+              ⁕Made on Earth for Humans⁕
+            </a>
           </div>
-        
+        </div>
       </BrowserRouter>
     </Provider>
   );

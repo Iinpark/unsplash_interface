@@ -14,7 +14,7 @@ const AppHeader = () => {
     <div className="container-fluid mainWrapper">
       <Link to="/" className="logoWrapper">
         <FontAwesomeIcon icon={faHamsa} />
-        <span className="logoText"> Image Stock</span>
+        <span className="logoText">unsplash_interface</span>
       </Link>
       <div className="navigation">
         <Link to="/search" className="navigation-button">
@@ -28,6 +28,10 @@ const AppHeader = () => {
         <Link to="/history" className="navigation-button">
           <FontAwesomeIcon color="white" icon={faHistory} />
           <span>История поиска</span>
+        </Link>
+        <Link to="/photo" className="navigation-button">
+          <FontAwesomeIcon color="white" icon={faHistory} />
+          <span>PHOTO SCREEN</span>
         </Link>
       </div>
     </div>

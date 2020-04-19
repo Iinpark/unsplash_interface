@@ -2,23 +2,26 @@ import Unsplash, { toJson } from "unsplash-js";
 
 const accessKey = "rUttPX0GjgLp7kiiXGQNNTqLIuS2XGtb3OP6L0ZqSQY";
 const unsplash = new Unsplash({
-  accessKey: accessKey
+  accessKey: accessKey,
 });
 
 export const UNAPI = {
+  getPhoto: (id) => {
+    return unsplash.photos.getPhoto(id).then(toJson);
+  },
   photos: () => {
     const json = unsplash.photos
       .listPhotos(1, 10, "latest")
       .then(toJson)
-      .then(json => json);
+      .then((json) => json);
     return json;
   },
-  download: json => {
+  download: (json) => {
     fetch(json.links.download_location + `?client_id=${accessKey}`)
-      .then(resp => {
+      .then((resp) => {
         return resp.json();
       })
-      .then(link => {
+      .then((link) => {
         console.log(typeof link);
 
         window.open(link.url);
@@ -29,19 +32,18 @@ export const UNAPI = {
     const json = unsplash.collections
       .listCollections(1, 10, "popular")
       .then(toJson)
-      .then(json => {
-        console.log("LIST COLLECTIONS", json);
+      .then((json) => {
         return json;
       });
     return json;
   },
-  searchPhotos: keyword => {
+  searchPhotos: (keyword) => {
     const json = unsplash.search
       .photos(keyword, 1, 10)
       .then(toJson)
-      .then(json => {
+      .then((json) => {
         return json;
       });
     return json;
-  }
+  },
 };

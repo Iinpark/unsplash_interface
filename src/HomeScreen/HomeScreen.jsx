@@ -1,25 +1,15 @@
 import React from "react";
 import CardList from "../components/Lists/CardList";
 import { connect } from "react-redux";
-import { UNAPI } from "./../BLL/index";
-import { fetchPhotoActions } from "./../redux/photoReducer";
+import { photoActions } from "./../redux/photoReducer";
 
 class HomeScreen extends React.Component {
   componentDidMount() {
     this.props.fetchAllPhotos();
   }
   render() {
-    console.log("HOME SCREEN", this.props);
-
     return (
-      <div>
-        {<CardList data={this.props.allPhotos} /> || "ничего нет"}
-        <button
-          onClick={() => {
-            this.props.fetchAllPhotos();
-          }}
-        >Скачать Фото</button>
-      </div>
+      <div>{<CardList data={this.props.allPhotos} /> || "ничего нет"}</div>
     );
   }
 }
@@ -34,7 +24,7 @@ const mapState = (state) => {
 const mapDispatch = (dispatch) => {
   return {
     fetchAllPhotos: () => {
-      dispatch(fetchPhotoActions.fetchAllPhotos());
+      dispatch(photoActions.fetchAllPhotos());
     },
   };
 };

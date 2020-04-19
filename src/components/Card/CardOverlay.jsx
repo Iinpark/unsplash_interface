@@ -5,10 +5,13 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
+import { Link } from "react-router-dom";
+
 import { connect } from "react-redux";
 import { UNAPI } from "./../../BLL/index";
 import "./cardOverlayStyle.css";
 import { actions } from "../../redux/favoritesReducer";
+import { photoActions } from "./../../redux/photoReducer";
 
 class CardOverlay extends React.Component {
   constructor(props) {
@@ -18,21 +21,13 @@ class CardOverlay extends React.Component {
     };
   }
 
-  // componentDidMount() {
-  //   const isLiked = this.props.favoritesList.some((element) => {
-  //     return element.id === this.props.json.id;
-  //   });
-  //   if (isLiked) {
-  //     this.setState({
-  //       isLiked: true,
-  //     });
-  //   }
-  // }
+  onViewPhoto() {
+    const id = this.props.json.id;
+    this.props.viewPhoto(id);
+  }
 
   render() {
-    console.log("OVERLAY", this.props.json);
-    
-    let isLiked = this.props.json?.isLiked 
+    let isLiked = this.props.json?.isLiked;
     const user = this.props.json.user;
     return (
       <div className="card-overlay">
@@ -57,9 +52,13 @@ class CardOverlay extends React.Component {
           >
             <FontAwesomeIcon className="information-icon" icon={faHeart} />
           </button>
-          <button className="information-button">
+          <Link
+            to="/photo"
+            className="information-button"
+            onClick={this.onViewPhoto.bind(this)}
+          >
             <FontAwesomeIcon className="information-icon" icon={faExpand} />
-          </button>
+          </Link>
           <button
             className="information-button"
             onClick={() => {
@@ -78,6 +77,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     toggleFavorite: (json) => {
       dispatch(actions.toggleFavorite(json));
+    },
+    viewPhoto: (id) => {
+      dispatch(photoActions.setCurrentPhoto(id));
     },
   };
 };

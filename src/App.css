@@ -22,3 +22,10 @@
   text-align: center;
   flex-direction: column;
 }
+
+.manifesto span{
+  margin: 2px;
+}
+.manifesto a:hover {
+    text-decoration: none;
+}
