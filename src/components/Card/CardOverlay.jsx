@@ -66,8 +66,7 @@ class CardOverlay extends React.Component {
             onClick={() => {
               UNAPI.download(this.props.json);
             }}
-            
-            href={ this.props.json.links.download + "?force=true"}
+            href={this.props.json.links.download + "?force=true"}
           >
             <FontAwesomeIcon className="information-icon" icon={faDownload} />
           </a>

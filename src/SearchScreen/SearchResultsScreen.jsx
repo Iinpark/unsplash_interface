@@ -2,6 +2,8 @@ import React from "react";
 import { connect } from "react-redux";
 import SearchHeader from "./SearchHeader";
 import CardList from "./../components/Lists/CardList";
+import styles from "./searchResultsScreen.module.css";
+import Placeholder from "../components/Placeholder/Placeholder";
 
 class SearchResultsScreen extends React.Component {
   constructor(props) {
@@ -22,9 +24,13 @@ class SearchResultsScreen extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className={styles.searchResultsScreen}>
         <SearchHeader />
-        {<CardList data={this.state.search_results} /> || "Результатов нет"}
+        {this.state.search_results ? (
+          <CardList data={this.state.search_results} />
+        ) : (
+          <Placeholder />
+        )}
       </div>
     );
   }

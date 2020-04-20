@@ -21,7 +21,7 @@ export const actions = {
 };
 
 const initialState = {
-  favoritesList: [],
+  favoritesList:[],
   total: 0,
 };
 

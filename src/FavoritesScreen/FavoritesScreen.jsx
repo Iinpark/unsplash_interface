@@ -1,9 +1,14 @@
 import React from "react";
 import { connect } from "react-redux";
 import CardList from "./../components/Lists/CardList";
+import Placeholder from "../components/Placeholder/Placeholder";
 
 const FavoritesScreen = ({ favoritesList }) => {
-  return <CardList data={favoritesList} />;
+  return favoritesList.length === 0 ? (
+    <Placeholder />
+  ) : (
+    <CardList data={favoritesList} />
+  );
 };
 
 const mapState = (state) => {

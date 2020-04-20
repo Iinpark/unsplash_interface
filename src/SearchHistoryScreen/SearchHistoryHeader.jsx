@@ -1,7 +1,7 @@
 import React from "react";
 import HorizontalTextList from "./../components/Lists/HorizontalTextList";
 import "./historyHeader.css";
-import { connect } from "react-redux";
+
 
 const SearchHistoryHeader = ({search_history_list}) => {
   return (
@@ -12,10 +12,5 @@ const SearchHistoryHeader = ({search_history_list}) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    search_history_list: state.search.search_keywords,
-  };
-};
 
-export default connect(mapStateToProps)(SearchHistoryHeader);
+export default SearchHistoryHeader
