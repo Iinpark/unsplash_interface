@@ -29,6 +29,7 @@ class CardOverlay extends React.Component {
   render() {
     let isLiked = this.props.json?.isLiked;
     const user = this.props.json.user;
+
     return (
       <div className="card-overlay">
         <div className="profile-info">
@@ -59,14 +60,17 @@ class CardOverlay extends React.Component {
           >
             <FontAwesomeIcon className="information-icon" icon={faExpand} />
           </Link>
-          <button
+
+          <a
             className="information-button"
             onClick={() => {
               UNAPI.download(this.props.json);
             }}
+            
+            href={ this.props.json.links.download + "?force=true"}
           >
             <FontAwesomeIcon className="information-icon" icon={faDownload} />
-          </button>
+          </a>
         </div>
       </div>
     );

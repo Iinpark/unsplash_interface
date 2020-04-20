@@ -6,12 +6,6 @@ import styles from "./PhotosScreen.module.css";
 import { photoActions } from "./../redux/photoReducer";
 import CardList from "./../components/Lists/CardList";
 
-const photoPlaceholder =
-  "https://images.unsplash.com/photo-1587013258002-b57e3cb17dea?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjExNzk3N30";
-
-const userProfilePlacehoder =
-  "https://images.unsplash.com/profile-fb-1546918339-0cab0a15f6d6.jpg?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&cs=tinysrgb&fit=crop&h=128&w=128";
-
 class PhotosScreen extends React.Component {
   tagList(tags) {
     return (
@@ -67,7 +61,12 @@ class PhotosScreen extends React.Component {
               <button className={styles.upperButtonsHeart}>
                 <FontAwesomeIcon color="#828282" icon={faHeart} />
               </button>
-              <button className={styles.upperButtonsDownload}>Скачать</button>
+              <a
+                href={json?.links?.download + "?force=true"|| '#'}
+                className={styles.upperButtonsDownload}
+              >
+                Скачать
+              </a>
             </div>
           </div>
           <img className={styles.photo} src={json?.urls?.regular} alt="." />

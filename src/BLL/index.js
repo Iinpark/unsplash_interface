@@ -17,15 +17,6 @@ export const UNAPI = {
     return json;
   },
   download: (json) => {
-    fetch(json.links.download_location + `?client_id=${accessKey}`)
-      .then((resp) => {
-        return resp.json();
-      })
-      .then((link) => {
-        console.log(typeof link);
-
-        window.open(link.url);
-      });
     unsplash.photos.downloadPhoto(json);
   },
   listCollections: () => {
