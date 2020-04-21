@@ -1,3 +1,14 @@
+@media (max-width: 620px) {
+  .navigation span {
+    display: none;
+  }
+}
+
+@media (max-width: 345px) {
+  .logoText {
+    display: none;
+  }
+}
 .mainWrapper {
   position: relative;
   display: flex;
@@ -8,7 +19,7 @@
 }
 
 .logoWrapper {
-color: white;
+  color: white;
   position: left;
   display: inline-block;
   height: min-content;
