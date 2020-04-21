@@ -5,11 +5,13 @@ import placeholderStyles from "./placeholder.module.css";
 const Placeholder = () => {
   return (
     <div className={placeholderStyles.placeholderWrapper}>
-      <img
-        src={placeholderImage}
-        alt="placeholder"
-        className={placeholderStyles.placeholder}
-      />
+      <div>
+        <img
+          src={placeholderImage}
+          alt="placeholder"
+          className={placeholderStyles.placeholder}
+        />
+      </div>
     </div>
   );
 };
