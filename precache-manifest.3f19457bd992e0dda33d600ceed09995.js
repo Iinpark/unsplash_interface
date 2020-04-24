@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "4bcb87b07130f2595cd69f1ada6d28aa",
+    "revision": "7e1b0f32390dbf9c64c20d3903ab06c7",
     "url": "/unsplash_interface/index.html"
   },
   {
@@ -8,8 +8,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/unsplash_interface/static/css/2.47e06e2e.chunk.css"
   },
   {
-    "revision": "064c222be3748a0554f9",
-    "url": "/unsplash_interface/static/css/main.15fef149.chunk.css"
+    "revision": "5bbe54cbadf26299a7ae",
+    "url": "/unsplash_interface/static/css/main.cb3975cc.chunk.css"
   },
   {
     "revision": "b501eb9db14042c144d9",
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/unsplash_interface/static/js/2.fbe55fad.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "064c222be3748a0554f9",
-    "url": "/unsplash_interface/static/js/main.0928d8f1.chunk.js"
+    "revision": "5bbe54cbadf26299a7ae",
+    "url": "/unsplash_interface/static/js/main.98290899.chunk.js"
   },
   {
     "revision": "4c8b371713d985655390",
