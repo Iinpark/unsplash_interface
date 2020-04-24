@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import "./searchHeader.css";
+import styles from "./searchHeader.module.css";
 import { UNAPI } from "../BLL/index";
 
 import HeaderListItem from "./HeaderListItem";
@@ -12,13 +12,13 @@ class SearchHeader extends React.Component {
     super(props);
     this.state = {
       collectionsList: undefined,
-      searchKeyword: ""
+      searchKeyword: "",
     };
   }
 
   componentDidMount() {
-    UNAPI.listCollections().then(json => {
-      const titles = json.map(item => {
+    UNAPI.listCollections().then((json) => {
+      const titles = json.map((item) => {
         return item.title;
       });
       this.setState({ collectionsList: titles });
@@ -29,51 +29,45 @@ class SearchHeader extends React.Component {
     //TODO:навигируем на <CollectionPhotoList />;
     // и прокидываем туда пропс с json объектом
   }
+  handleEnter() {
+    this.props.doSearch(this.state.searchKeyword);
+  }
 
   render() {
     return (
-      <div className="search-header-wrapper container-fluid">
-        {/* <form action="submit"> */}
-        <input
-          className="search-text-input"
-          type="text"
-          placeholder="Исследуй"
-          onChange={event => {
-            this.setState({ searchKeyword: event.target.value });
-          }}
-        />
-        <button
-          onClick={() => {
-            this.props.doSearch(this.state.searchKeyword);
-          }}
-        >
-          поиск
-        </button>
-        {/* </form> */}
+      <div className={styles.searchHeaderWrapper}>
+        <form onSubmit={this.handleEnter.bind(this)}>
+          <input
+            className={styles.searchTextInput}
+            type="search"
+            results="2"
+            placeholder="Поиск"
+            onChange={(event) => {
+              this.setState({ searchKeyword: event.target.value });
+            }}
+          />
+        </form>
         <hr size="10" color="white" width="80%" />
-        <div className="collections-list">
-          {/* //TODO: сюда не прокидываются пропсы 
-          так как рендер идет раньше чем делается 
-          запрос на сервер в componentDidMount*/}
-          <HorizontalTextList data={this.state.collectionsList} />
+        <div className={styles.collectionsList}>
+          {/* TODO:Сделать чипсы с результатами поиска <HorizontalTextList data={this.state.collectionsList} /> */}
         </div>
       </div>
     );
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     search_results: state.search.search_results,
-    is_pending: state.search.is_pending
+    is_pending: state.search.is_pending,
   };
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    doSearch: keyword => {
+    doSearch: (keyword) => {
       dispatch(searchActions.doSearch(keyword));
-    }
+    },
   };
 };
 
