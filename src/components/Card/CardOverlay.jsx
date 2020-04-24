@@ -12,6 +12,7 @@ import { UNAPI } from "./../../BLL/index";
 import "./cardOverlayStyle.css";
 import { actions } from "../../redux/favoritesReducer";
 import { photoActions } from "./../../redux/photoReducer";
+import InstagramLink from "../InstagramLink/InstagramLink";
 
 class CardOverlay extends React.Component {
   constructor(props) {
@@ -39,7 +40,7 @@ class CardOverlay extends React.Component {
             alt="profile"
           />
           <div className="profile-info-name">
-            <span>@{user.instagram_username}</span>
+            <InstagramLink instagram_username={user.instagram_username}/>
             <span>{user.name}</span>
           </div>
         </div>

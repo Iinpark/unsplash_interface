@@ -79,6 +79,7 @@
 .profileLink {
   font-size: 1em;
   margin: 0;
+
 }
 
 /* ВЕРХНИЕ КНОПКИ */
@@ -144,6 +145,9 @@
   }
   .upperButtons a > span {
     display: none;
+  }
+  .profileLink  svg{
+    fill: black;
   }
 }
 

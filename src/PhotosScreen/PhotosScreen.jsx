@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import styles from "./PhotosScreen.module.css";
 import { photoActions } from "./../redux/photoReducer";
 import CardList from "./../components/Lists/CardList";
+import InstagramLink from "../components/InstagramLink/InstagramLink";
 
 class PhotosScreen extends React.Component {
   tagList(tags) {
@@ -52,7 +53,9 @@ class PhotosScreen extends React.Component {
                 <div className={styles.profileText}>
                   <h1 className={styles.profileName}>{user?.username}</h1>
                   <span className={styles.profileLink}>
-                    @{user?.instagram_username}
+                    <InstagramLink
+                      instagram_username={user?.instagram_username}
+                    />
                   </span>
                 </div>
               </div>
