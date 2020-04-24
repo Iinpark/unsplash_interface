@@ -1,42 +1,59 @@
 .photosScreenWrapper {
   display: flex;
-  flex: 1;
+  height: auto;
+  width: 100%;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+}
+.photosWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 50px;
 }
 
 /* ФОНОВАЯ КАРТИНКА */
 .photosScreenBackground {
-  height: 100%;
+  height: auto;
+  max-height: 800px;
   width: 100%;
   position: relative;
   overflow: hidden;
   flex: 1;
   background-position: center;
   background-repeat: no-repeat;
-  z-index: -1;
+  z-index: 1;
   border: 0.1px solid transparent;
 }
 .photosScreenBackground img {
   width: 100%;
+  height: auto;
+  object-fit: contain;
   filter: blur(3px) brightness(0.5);
   transform: scale(1.1);
 }
 
 /* СТИЛИ ДЛЯ ОВЕРЛЕЯ */
 .photosScreenOverlay {
+  height: inherit;
   color: white;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  justify-self: center;
   position: absolute;
   z-index: 2;
-
-  top: 10;
 }
 /* ГЛАВНАЯ ФОТОГРАФИЯ */
 .photo {
+  max-width: 90%;
+  height: auto;
+  max-height: 700px;
   align-self: center;
-  flex: 1;
+  border: 0.1px solid wheat;
+  border-radius: 7px;
 }
 
 /* ИНФОРМАЦИЯ О ПРОФИЛЕ */
@@ -44,14 +61,23 @@
   display: flex;
 }
 .profilePhoto {
-  /* display: inline; */
   align-self: center;
   border-radius: 8px;
-  height: 50px;
+  height: 4em;
 }
 
+.profileText {
+  margin: 0px 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
 .profileName {
-  font-size: 21px;
+  font-size: 2rem;
+  margin: 0;
+}
+.profileLink {
+  font-size: 1em;
   margin: 0;
 }
 
@@ -69,7 +95,6 @@
   border-radius: 5px;
   height: 30px;
 }
-
 .upperButtons {
   display: flex;
   align-items: center;
@@ -78,27 +103,69 @@
 .upperButtons button + a {
   color: white;
   margin: 5px;
+  text-decoration: none;
 }
-.upperButtons button:active + a:active + a:hover {
+.upperButtons > button:active,
+.upperButtons > a:active {
   filter: brightness(0.7);
   text-decoration: none;
 }
-
 .upperButtonsHeart {
   background-color: rgb(192, 192, 192);
   border-radius: 3px;
   border: 1px;
+  min-height: 30px;
+  min-width: 30px;
 }
 
 /* ТЕГИ */
 .relatedTags {
   text-align: center;
 }
-
 .relatedTags div span {
   background-color: white;
   color: black;
   padding: 2px;
   border-width: 2px;
   border-radius: 3px;
+}
+.relatedPhotos > h2 {
+  font-size: 2rem;
+  color: black;
+}
+
+@media (max-width: 470px) {
+  .photosScreenBackground {
+    display: none;
+  }
+  .photosScreenOverlay {
+    position: relative;
+    color: black;
+  }
+  .upperButtons a > span {
+    display: none;
+  }
+}
+
+@media (max-width: 425px) {
+  .photosScreenWrapper {
+    font-size: 20px;
+  }
+  .profilePhoto {
+    height: 2.5em;
+    width: 2.5em;
+  }
+  .profileName {
+    font-size: 1.5em;
+  }
+  .profileLink {
+    font-size: 0.7em;
+  }
+  .photo {
+    width: 95%;
+    height: auto;
+  }
+  .relatedPhotos > h2 {
+    font-size: 1.5em;
+  }
 }

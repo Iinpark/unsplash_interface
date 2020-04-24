@@ -1,6 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import { faHeart, faDownload } from "@fortawesome/free-solid-svg-icons";
 import { connect } from "react-redux";
 import styles from "./PhotosScreen.module.css";
 import { photoActions } from "./../redux/photoReducer";
@@ -37,43 +37,46 @@ class PhotosScreen extends React.Component {
     const user = json?.user;
     return (
       <div className={styles.photosScreenWrapper}>
-        <div className={styles.photosScreenBackground}>
-          <img src={json?.urls?.regular} alt="beautyful background" />
-        </div>
+        <section className={styles.photosWrapper}>
+          <div className={styles.photosScreenBackground}>
+            <img src={json?.urls?.regular} alt="beautyful background" />
+          </div>
+          <section className={styles.photosScreenOverlay}>
+            <div className={styles.photoUpperButtons}>
+              <div className={styles.profileInfo}>
+                <img
+                  className={styles.profilePhoto}
+                  src={user?.profile_image.medium}
+                  alt="profile avatar"
+                />
+                <div className={styles.profileText}>
+                  <h1 className={styles.profileName}>{user?.username}</h1>
+                  <span className={styles.profileLink}>
+                    @{user?.instagram_username}
+                  </span>
+                </div>
+              </div>
 
-        <section className={styles.photosScreenOverlay}>
-          <div className={styles.photoUpperButtons}>
-            <div className={styles.profileInfo}>
-              <img
-                className={styles.profilePhoto}
-                src={user?.profile_image.medium}
-                alt="profile avatar"
-              />
-              <div className={styles.profileText}>
-                <h1 className={styles.profileName}>{user?.username}</h1>
-                <span className={styles.profileLink}>
-                  @{user?.instagram_username}
-                </span>
+              <div className={styles.upperButtons}>
+                <button className={styles.upperButtonsHeart}>
+                  <FontAwesomeIcon color="#828282" icon={faHeart} />
+                </button>
+                <a
+                  href={json?.links?.download + "?force=true" || "#"}
+                  className={styles.upperButtonsDownload}
+                >
+                  <FontAwesomeIcon color="white" icon={faDownload} />
+                  <span>Скачать</span>
+                </a>
               </div>
             </div>
-
-            <div className={styles.upperButtons}>
-              <button className={styles.upperButtonsHeart}>
-                <FontAwesomeIcon color="#828282" icon={faHeart} />
-              </button>
-              <a
-                href={json?.links?.download + "?force=true"|| '#'}
-                className={styles.upperButtonsDownload}
-              >
-                Скачать
-              </a>
-            </div>
-          </div>
-          <img className={styles.photo} src={json?.urls?.regular} alt="." />
-          {this.tagList(json?.tags)}
+            <img className={styles.photo} src={json?.urls?.regular} alt="." />
+            {/*
+            TODO: Нормальные теги
+            {this.tagList(json?.tags)} */}
+          </section>
         </section>
-
-        <section>
+        <section className={styles.relatedPhotos}>
           <h2>Похожие фотографии</h2>
           {this.relatedPhotos(this.props.relatedPhotos)}
         </section>
