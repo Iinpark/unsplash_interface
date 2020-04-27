@@ -4,8 +4,11 @@ import { connect } from "react-redux";
 import { photoActions } from "./../redux/photoReducer";
 
 class HomeScreen extends React.Component {
+  
   componentDidMount() {
-    this.props.fetchAllPhotos();
+    if (this.props.allPhotos === undefined) {
+      this.props.fetchAllPhotos();
+    }
   }
   render() {
     return (
@@ -16,7 +19,7 @@ class HomeScreen extends React.Component {
 
 const mapState = (state) => {
   console.log("STATE", state);
-  return {
+  return {  
     allPhotos: state.photos.allPhotos,
   };
 };
