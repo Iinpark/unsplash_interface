@@ -12,6 +12,9 @@ const types = {
   GET_RELATED_PHOTOS: "GET_RELATED_PHOTOS",
   GET_RELATED_PHOTOS_PENDING: "GET_RELATED_PHOTOS_PENDING",
   GET_RELATED_PHOTOS_SUCCESS: "GET_RELATED_PHOTOS_SUCCESS",
+
+  COMPARE_FAVORITES: "COMPARE_FAVORITES",
+  COMPARE_FAVORITES_SUCCESS: "COMPARE_FAVORITES_SUCCESS",
 };
 
 export const photoActions = {
@@ -36,8 +39,9 @@ export const photoActions = {
   setCurrentPhoto: (id) => {
     return (dispatch) => {
       UNAPI.getPhoto(id).then((json) => {
-        dispatch(photoActions.setCurrentPhotoSuccess(json),
-        dispatch(photoActions.getRelatedPhotos(json.alt_description))
+        dispatch(
+          photoActions.setCurrentPhotoSuccess(json),
+          dispatch(photoActions.getRelatedPhotos(json.alt_description))
         );
       });
     };
