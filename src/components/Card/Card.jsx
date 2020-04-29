@@ -1,13 +1,13 @@
 import React from "react";
 import CardOverlay from "./CardOverlay";
-import "./cardStyle.css";
+import styles from "./cardStyle.module.css";
 
 const Card = ({ src, altDesc, json }) => {
   return (
-    <figure>
-      <div className="card">
-        <img src={src} alt={altDesc} className="image" />
-        <div className="information-overlay">
+    <figure className={styles.wrapper}>
+      <div className={styles.card}>
+        <img src={src} alt={altDesc} className={styles.image} />
+        <div className={styles.informationOverlay}>
           <CardOverlay json={json} />
         </div>
       </div>

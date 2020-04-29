@@ -1,7 +1,14 @@
-.CardList{
-    align-self: center;
-    justify-content: space-evenly;
+.CardList {
+  -moz-columns: auto 3;
+  -webkit-columns: auto 3;
+  columns: auto 3;
+  width: 100%;
+}
+
+@media (max-width: 425px) {
+  .CardList {
     display: flex;
     flex-wrap: wrap;
-    width: 100%;
+    columns: none;
+  }
 }

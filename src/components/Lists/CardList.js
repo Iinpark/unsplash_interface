@@ -4,7 +4,6 @@ import Card from "../Card/Card.jsx";
 import "./cardListStyle.css";
 
 class CardList extends React.Component {
-
   // How favorites works in this app?
   // When user presses on a Like button, favoritesReducer adds "isLike" boolean field into photo`s object,
   // and copying that object into "favorites" array.
@@ -12,7 +11,7 @@ class CardList extends React.Component {
   // But, when user reloads the page, app fetches new photos from server.
   // And that photos objects do not contain "isLike" field
   // This methot compares photos from server and favoritesList, and if this photo contains in favoritesList
-  // mutates server object by adding "isLike" field
+  // mutates object from server by adding "isLike" field
   compareWithFavorites() {
     const favList = this.props.favoritesList; //array
     const data = this.props?.data;

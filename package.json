@@ -1,6 +1,6 @@
 {
-  "homepage": "http://Iinpark.github.io/unsplash_interface",
-  "name": "unsplash_interface",
+  "homepage": "http://Iinpark.github.io/resplash",
+  "name": "resplash",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

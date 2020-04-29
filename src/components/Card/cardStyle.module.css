@@ -1,16 +1,18 @@
-figure {
+.wrapper {
   margin: 5px;
   border-radius: 8px;
+  display: inline-block;
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
 }
 .card {
   position: relative;
-  overflow: hidden;
   z-index: 9;
 }
 
-.information-overlay {
+.informationOverlay {
   position: absolute;
-  bottom: 50;
   visibility: hidden;
   color: #fff;
   height: 100%;
@@ -20,14 +22,15 @@ figure {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  top: 1px;
 }
 
-.card:hover .information-overlay {
+.card:hover .informationOverlay {
   visibility: visible;
   transition: visibility 2s;
 }
 
-.card:hover >.image {
+.card:hover > .image {
   filter: blur(3px) brightness(0.9);
   transition: filter 0.2s;
 }
@@ -35,7 +38,6 @@ figure {
 .image {
   height: auto;
   width: 100%;
-  /* еще больше контроля с max-width */
   max-width: 720px;
   object-fit: cover;
   border: 3px solid transparent;
