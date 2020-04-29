@@ -1,27 +1,27 @@
 {
   "files": {
-    "main.css": "/unsplash_interface/static/css/main.a984e91d.chunk.css",
-    "main.js": "/unsplash_interface/static/js/main.ac38babe.chunk.js",
-    "main.js.map": "/unsplash_interface/static/js/main.ac38babe.chunk.js.map",
-    "runtime-main.js": "/unsplash_interface/static/js/runtime-main.49bd4d4e.js",
-    "runtime-main.js.map": "/unsplash_interface/static/js/runtime-main.49bd4d4e.js.map",
-    "static/css/2.47e06e2e.chunk.css": "/unsplash_interface/static/css/2.47e06e2e.chunk.css",
-    "static/js/2.39103ae7.chunk.js": "/unsplash_interface/static/js/2.39103ae7.chunk.js",
-    "static/js/2.39103ae7.chunk.js.map": "/unsplash_interface/static/js/2.39103ae7.chunk.js.map",
-    "index.html": "/unsplash_interface/index.html",
-    "precache-manifest.18ead41192712c47d6edf60df2e9a63b.js": "/unsplash_interface/precache-manifest.18ead41192712c47d6edf60df2e9a63b.js",
-    "service-worker.js": "/unsplash_interface/service-worker.js",
-    "static/css/2.47e06e2e.chunk.css.map": "/unsplash_interface/static/css/2.47e06e2e.chunk.css.map",
-    "static/css/main.a984e91d.chunk.css.map": "/unsplash_interface/static/css/main.a984e91d.chunk.css.map",
-    "static/js/2.39103ae7.chunk.js.LICENSE.txt": "/unsplash_interface/static/js/2.39103ae7.chunk.js.LICENSE.txt",
-    "static/media/empty_placeholder.png": "/unsplash_interface/static/media/empty_placeholder.ced1b148.png",
-    "static/media/instagram.dca29619.svg": "/unsplash_interface/static/media/instagram.dca29619.svg"
+    "main.css": "/resplash/static/css/main.d70b182b.chunk.css",
+    "main.js": "/resplash/static/js/main.7fb24d30.chunk.js",
+    "main.js.map": "/resplash/static/js/main.7fb24d30.chunk.js.map",
+    "runtime-main.js": "/resplash/static/js/runtime-main.48dacbf5.js",
+    "runtime-main.js.map": "/resplash/static/js/runtime-main.48dacbf5.js.map",
+    "static/css/2.47e06e2e.chunk.css": "/resplash/static/css/2.47e06e2e.chunk.css",
+    "static/js/2.ea4699c8.chunk.js": "/resplash/static/js/2.ea4699c8.chunk.js",
+    "static/js/2.ea4699c8.chunk.js.map": "/resplash/static/js/2.ea4699c8.chunk.js.map",
+    "index.html": "/resplash/index.html",
+    "precache-manifest.57546d509d5a1bb736a89a7be2d6b6d9.js": "/resplash/precache-manifest.57546d509d5a1bb736a89a7be2d6b6d9.js",
+    "service-worker.js": "/resplash/service-worker.js",
+    "static/css/2.47e06e2e.chunk.css.map": "/resplash/static/css/2.47e06e2e.chunk.css.map",
+    "static/css/main.d70b182b.chunk.css.map": "/resplash/static/css/main.d70b182b.chunk.css.map",
+    "static/js/2.ea4699c8.chunk.js.LICENSE.txt": "/resplash/static/js/2.ea4699c8.chunk.js.LICENSE.txt",
+    "static/media/empty_placeholder.png": "/resplash/static/media/empty_placeholder.ced1b148.png",
+    "static/media/instagram.dca29619.svg": "/resplash/static/media/instagram.dca29619.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.49bd4d4e.js",
+    "static/js/runtime-main.48dacbf5.js",
     "static/css/2.47e06e2e.chunk.css",
-    "static/js/2.39103ae7.chunk.js",
-    "static/css/main.a984e91d.chunk.css",
-    "static/js/main.ac38babe.chunk.js"
+    "static/js/2.ea4699c8.chunk.js",
+    "static/css/main.d70b182b.chunk.css",
+    "static/js/main.7fb24d30.chunk.js"
   ]
 }
