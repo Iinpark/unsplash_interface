@@ -1,0 +1,49 @@
+.mainWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background-color: black;
+  height: calc(32px + 5px);
+}
+
+.logoWrapper {
+  color: white;
+  display: inline-block;
+  height: 1.5em;
+  align-self: center;
+}
+.logo {
+  fill: white;
+}
+.logoText {
+  text-align: justify;
+  font-size: medium;
+  font-weight: 600;
+}
+
+.navigation {
+  display: flex;
+}
+.navigationButton {
+  margin-left: 15px;
+  margin-right: 15px;
+  height: 1.5em;  
+}
+.navigation span {
+  color: white;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+@media (max-width: 620px) {
+  .navigation span {
+    display: none;
+  }
+}
+
+@media (max-width: 345px) {
+  .logoText {
+    display: none;
+  }
+}

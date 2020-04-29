@@ -1,5 +1,6 @@
 import React from "react";
-import "./style.css";
+import styles from "./AppHeader.module.css";
+import "./activeStyle.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHistory,
@@ -7,28 +8,49 @@ import {
   faHeart,
   faHamsa,
 } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const AppHeader = () => {
   return (
-    <div className="container-fluid mainWrapper">
-      <Link to="/" className="logoWrapper">
+    <div className={styles.mainWrapper}>
+      <NavLink
+        exact
+        to="/"
+        className={styles.logoWrapper}
+        // activeStyle={styles.active}
+        activeClassName="active"
+      >
         <FontAwesomeIcon icon={faHamsa} />
-        <span className="logoText">unsplash_interface</span>
-      </Link>
-      <div className="navigation">
-        <Link to="/search" className="navigation-button">
+        <span className={styles.logoText}>Resplash</span>
+      </NavLink>
+      <div className={styles.navigation}>
+        <NavLink
+          to="/search"
+          className={styles.navigationButton}
+          // activeStyle={styles.active}
+          activeClassName="active"
+        >
           <FontAwesomeIcon color="white" icon={faSearch} />
           <span>Поиск</span>
-        </Link>
-        <Link to="/favorites" className="navigation-button">
+        </NavLink>
+        <NavLink
+          to="/favorites"
+          className={styles.navigationButton}
+          // activeStyle={styles.active}
+          activeClassName="active"
+        >
           <FontAwesomeIcon color="white" icon={faHeart} />
           <span>Избранное</span>
-        </Link>
-        <Link to="/history" className="navigation-button">
+        </NavLink>
+        <NavLink
+          to="/history"
+          className={styles.navigationButton}
+          // activeStyle={styles.active}
+          activeClassName="active"
+        >
           <FontAwesomeIcon color="white" icon={faHistory} />
           <span>История поиска</span>
-        </Link>
+        </NavLink>
       </div>
     </div>
   );
