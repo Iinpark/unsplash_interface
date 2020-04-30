@@ -9,11 +9,12 @@ export const UNAPI = {
   getPhoto: (id) => {
     return unsplash.photos.getPhoto(id).then(toJson);
   },
-  photos: () => {
+  photos: (page) => {
     const json = unsplash.photos
-      .listPhotos(1, 10, "latest")
+      .listPhotos(page, 2, "latest")
       .then(toJson)
       .then((json) => json);
+    console.log("PHOTTOS", json);
     return json;
   },
   download: (json) => {

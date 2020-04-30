@@ -1,5 +1,5 @@
 import { UNAPI } from "./../BLL/index";
-
+let _cp = 1;
 const types = {
   FETCH_PHOTOS: "FETCH_PHOTOS",
   FETCH_SUCCESS: "FETCH_SUCCESS",
@@ -15,6 +15,8 @@ const types = {
 
   COMPARE_FAVORITES: "COMPARE_FAVORITES",
   COMPARE_FAVORITES_SUCCESS: "COMPARE_FAVORITES_SUCCESS",
+
+  INCREASE_PAGE: "INCREASE_PAGE",
 };
 
 export const photoActions = {
@@ -25,9 +27,9 @@ export const photoActions = {
     return { type: types.SET_CURRENT_PHOTO_SUCCESS, currentPhoto: photo };
   },
 
-  fetchAllPhotos: () => {
+  fetchAllPhotos: (page = 1) => {
     return (dispatch) => {
-      UNAPI.photos()
+      UNAPI.photos(page)
         .then((resp) => {
           dispatch(photoActions.fetchSuccess(resp));
         })
@@ -61,11 +63,18 @@ export const photoActions = {
   getRelatedPhotosPending: () => {
     return { type: types.GET_RELATED_PHOTOS_PENDING };
   },
+  increasePage: () => {
+    _cp = _cp + 1;
+    return (dispatch) => {
+      dispatch(photoActions.fetchAllPhotos(_cp));
+    };
+  },
 };
 
 const initialState = {
   //list of all photos on HomeScreen | array
   allPhotos: undefined,
+  currentPage: 1,
   //a photo that user currently viewing on PhotosScreen | object
   currentPhoto: undefined,
   relatedPhotos: undefined,
@@ -76,7 +85,7 @@ export const photoReducer = (state = initialState, action) => {
     case types.FETCH_SUCCESS:
       return {
         ...state,
-        allPhotos: action.photos,
+        allPhotos: [...new Set([...(state.allPhotos || []), ...action.photos])],
       };
 
     case types.SET_CURRENT_PHOTO_SUCCESS:
@@ -90,6 +99,11 @@ export const photoReducer = (state = initialState, action) => {
         ...state,
         relatedPhotos: action.relatedPhotos,
         isRelatedPhotosPending: false,
+      };
+    case types.INCREASE_PAGE:
+      return {
+        ...state,
+        currentPage: action?._cp,
       };
     default:
       return state;

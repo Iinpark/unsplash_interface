@@ -30,16 +30,32 @@ class CardList extends React.Component {
   }
   render() {
     this.compareWithFavorites();
+    const { setLastCardRef } = this.props;
     return (
       <div className="CardList">
         {this.props.data
-          ? this.props.data.map((item) => (
-              <Card
-                src={item.urls.small}
-                altDesc={item.alt_description}
-                json={item}
-              />
-            ))
+          ? this.props.data.map((item, index) => {
+              if (index === this.props.data.length -1) {
+                return (
+                  <Card
+                    setRef={setLastCardRef}
+                    src={item.urls.small}
+                    altDesc={item.alt_description}
+                    json={item}
+                    key={item.id}
+                  />
+                );
+              } else {
+                return (
+                  <Card
+                    src={item.urls.small}
+                    altDesc={item.alt_description}
+                    json={item}
+                    key={item.id}
+                  />
+                );
+              }
+            })
           : null}
       </div>
     );

@@ -1,8 +1,8 @@
 .CardList {
-  -moz-columns: auto 3;
+   -moz-columns: auto 3;
   -webkit-columns: auto 3;
   columns: auto 3;
-  width: 100%;
+  width: 100%; 
 }
 
 @media (max-width: 425px) {
