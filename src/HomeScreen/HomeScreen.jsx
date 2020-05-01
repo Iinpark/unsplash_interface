@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React from "react";
 import CardList from "../components/Lists/CardList";
 import { connect } from "react-redux";
 import { photoActions } from "./../redux/photoReducer";

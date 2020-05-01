@@ -1,8 +1,5 @@
-.CardList {
-   -moz-columns: auto 3;
-  -webkit-columns: auto 3;
-  columns: auto 3;
-  width: 100%; 
+/* .CardList {
+  
 }
 
 @media (max-width: 425px) {
@@ -11,4 +8,4 @@
     flex-wrap: wrap;
     columns: none;
   }
-}
+} */

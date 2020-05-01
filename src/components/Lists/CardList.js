@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import Masonry from "react-masonry-component";
 import Card from "../Card/Card.jsx";
 import "./cardListStyle.css";
 
@@ -32,10 +33,17 @@ class CardList extends React.Component {
     this.compareWithFavorites();
     const { setLastCardRef } = this.props;
     return (
-      <div className="CardList">
+      <Masonry
+     //   className={"CardList"} // default ''
+        elementType={"ul"} // default 'div'
+        //options={masonryOptions} // default {}
+        disableImagesLoaded={false} // default false
+        updateOnEachImageLoad={false} // default false and works only if disableImagesLoaded is false
+        //  imagesLoadedOptions={imagesLoadedOptions} // default {}
+      >
         {this.props.data
           ? this.props.data.map((item, index) => {
-              if (index === this.props.data.length -1) {
+              if (index === this.props.data.length - 1) {
                 return (
                   <Card
                     setRef={setLastCardRef}
@@ -57,7 +65,7 @@ class CardList extends React.Component {
               }
             })
           : null}
-      </div>
+      </Masonry>
     );
   }
 }
