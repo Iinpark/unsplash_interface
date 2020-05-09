@@ -14,7 +14,7 @@ export const UNAPI = {
       .listPhotos(page, 2, "latest")
       .then(toJson)
       .then((json) => json);
-    console.log("PHOTTOS", json);
+    
     return json;
   },
   download: (json) => {

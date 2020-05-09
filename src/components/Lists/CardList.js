@@ -11,7 +11,7 @@ class CardList extends React.Component {
   // Also we have redux-persist library, that saves apps State into localStorage.
   // But, when user reloads the page, app fetches new photos from server.
   // And that photos objects do not contain "isLike" field
-  // This methot compares photos from server and favoritesList, and if this photo contains in favoritesList
+  // This method compares photos from server and favoritesList, and if this photo contains in favoritesList
   // mutates object from server by adding "isLike" field
   compareWithFavorites() {
     const favList = this.props.favoritesList; //array
@@ -29,17 +29,16 @@ class CardList extends React.Component {
       }
     }
   }
+
   render() {
     this.compareWithFavorites();
     const { setLastCardRef } = this.props;
     return (
       <Masonry
-     //   className={"CardList"} // default ''
-        elementType={"ul"} // default 'div'
-        //options={masonryOptions} // default {}
-        disableImagesLoaded={false} // default false
-        updateOnEachImageLoad={false} // default false and works only if disableImagesLoaded is false
-        //  imagesLoadedOptions={imagesLoadedOptions} // default {}
+        className={"CardList"}
+        elementType={"div"}
+        disableImagesLoaded={false}
+        updateOnEachImageLoad={false}
       >
         {this.props.data
           ? this.props.data.map((item, index) => {

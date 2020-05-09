@@ -130,6 +130,9 @@
   border-width: 2px;
   border-radius: 3px;
 }
+.relatedPhotos{
+  width: 100%;
+}
 .relatedPhotos > h2 {
   font-size: 2rem;
   color: black;

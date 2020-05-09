@@ -6,26 +6,27 @@ import SearchHistoryScreen from "../SearchHistoryScreen/SearchHistoryScreen";
 import FavoritesScreen from "./../FavoritesScreen/FavoritesScreen";
 import PhotosScreen from "../PhotosScreen/PhotosScreen";
 
-export default class RootRouter extends React.PureComponent {
-  render() {
-    return (
-      <Switch>
-        <Route path="/search">
-          <SearchResultsScreen />
-        </Route>
-        <Route path="/history">
-          <SearchHistoryScreen />
-        </Route>
-        <Route path="/favorites">
-          <FavoritesScreen />
-        </Route>
-        <Route exact path="/">
-          <HomeScreen />
-        </Route>
-        <Route path="/photo">
-          <PhotosScreen />
-        </Route>
-      </Switch>
-    );
-  }
-}
+
+const RootRouter = () => {
+  return (
+    <Switch>
+      <Route path="/search">
+        <SearchResultsScreen />
+      </Route>
+      <Route path="/history">
+        <SearchHistoryScreen />
+      </Route>
+      <Route path="/favorites">
+        <FavoritesScreen />
+      </Route>
+      <Route exact path="/">
+        <HomeScreen />
+      </Route>
+      <Route path="/photo">
+        <PhotosScreen />
+      </Route>
+    </Switch>
+  );
+};
+
+export default RootRouter

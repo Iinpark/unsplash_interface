@@ -1,11 +1,3 @@
-/* .CardList {
-  
+.CardList{
+  width: 100%;
 }
-
-@media (max-width: 425px) {
-  .CardList {
-    display: flex;
-    flex-wrap: wrap;
-    columns: none;
-  }
-} */

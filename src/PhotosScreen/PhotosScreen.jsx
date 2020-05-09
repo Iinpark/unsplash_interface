@@ -6,8 +6,15 @@ import styles from "./PhotosScreen.module.css";
 import { photoActions } from "./../redux/photoReducer";
 import CardList from "./../components/Lists/CardList";
 import InstagramLink from "../components/InstagramLink/InstagramLink";
+import Preloader from "./../components/Preloader/Preloader";
+import ImgWithPreloader from "../components/ImgWithPreloader/ImgWithPreloader";
 
-class PhotosScreen extends React.Component {
+class PhotosScreen extends React.PureComponent {
+  state = {
+    isImageLoaded: false,
+    visibility: { visibility: "hidden" },
+  };
+
   tagList(tags) {
     return (
       <div className={styles.relatedTags}>
@@ -29,18 +36,22 @@ class PhotosScreen extends React.Component {
     );
   }
 
+
+
   relatedPhotos(data) {
     return <CardList data={data} />;
   }
+
   render() {
     console.log("PHOTOS SCREEN", this.props.currentPhoto);
     const json = this.props.currentPhoto;
     const user = json?.user;
+    const src = this.props.currentPhoto?.urls?.regular;
     return (
       <div className={styles.photosScreenWrapper}>
         <section className={styles.photosWrapper}>
           <div className={styles.photosScreenBackground}>
-            <img src={json?.urls?.regular} alt="beautyful background" />
+            <img src={json?.urls?.regular} alt="beautiful background" />
           </div>
           <section className={styles.photosScreenOverlay}>
             <div className={styles.photoUpperButtons}>
@@ -73,7 +84,7 @@ class PhotosScreen extends React.Component {
                 </a>
               </div>
             </div>
-            <img className={styles.photo} src={json?.urls?.regular} alt="." />
+            <ImgWithPreloader src={src} />
             {/*
             TODO: Нормальные теги
             {this.tagList(json?.tags)} */}

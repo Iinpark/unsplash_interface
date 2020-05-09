@@ -79,7 +79,9 @@ const initialState = {
   currentPhoto: undefined,
   relatedPhotos: undefined,
   isRelatedPhotosPending: true,
+  isCurrentPhotoPending: null
 };
+
 export const photoReducer = (state = initialState, action) => {
   switch (action.type) {
     case types.FETCH_SUCCESS:
