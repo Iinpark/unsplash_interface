@@ -15,9 +15,10 @@ export const UNAPI = {
       Вы обновили страницу ${page} раз
       Unsplash не позволяет обновлять страницу более 50 раз
       `);
+      return;
     }
     const json = unsplash.photos
-      .listPhotos(page, 3, "latest")
+      .listPhotos(page, 4, "latest")
       .then(toJson)
       .then((json) => json);
 
