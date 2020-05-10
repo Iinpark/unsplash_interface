@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { photoActions } from "./../redux/photoReducer";
 
 class HomeScreen extends React.Component {
+  //infinite scroll
   observer = React.createRef(); // текущий элемент
   setLastCardRef = (node) => {
     if (node === null) return;

@@ -11,7 +11,7 @@ import { connect } from "react-redux";
 import { UNAPI } from "./../../BLL/index";
 import "./cardOverlayStyle.css";
 import { actions } from "../../redux/favoritesReducer";
-import { photoActions } from "./../../redux/photoReducer";
+import { PhotosScreenActions } from "./../../redux/PhotosScreenReducer";
 import InstagramLink from "../InstagramLink/InstagramLink";
 
 class CardOverlay extends React.Component {
@@ -83,7 +83,7 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(actions.toggleFavorite(json));
     },
     viewPhoto: (id) => {
-      dispatch(photoActions.setCurrentPhoto(id));
+      dispatch(PhotosScreenActions.setCurrentPhoto(id));
     },
   };
 };

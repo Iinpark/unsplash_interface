@@ -64,12 +64,13 @@ export const searchReducer = (state = initialState, action) => {
       return {
         ...state,
         search_results: results,
-        isPending: false,
+        is_pending: false,
       };
     case types.SEARCH_FAILURE:
       return {
         ...state,
         search_results: "no matches",
+        is_pending: false,
       };
 
     case types.ADD_SEARCH_KEYWORD:

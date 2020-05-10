@@ -23,12 +23,17 @@ function App() {
             <div className="content">
               <RootRouter />
               <footer className="footer">
-                <span>2020</span>
-                <a
-                  href="https://youtu.be/A0FZIwabctw"
-                  title="Узнать что это значит"
-                  target="blank"
-                >
+                <span>
+                  Developed by{" "}
+                  <a
+                    href="https://vk.com/sultanesbolatov"
+                    target="blank"
+                    className="SultanEsbolatov"
+                  >
+                    Sultan Esbolatov
+                  </a>
+                </span>
+                <a href="https://youtu.be/A0FZIwabctw" target="blank">
                   ⁕Made on Earth for Humans⁕
                 </a>
               </footer>

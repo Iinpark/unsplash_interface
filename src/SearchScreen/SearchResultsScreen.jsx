@@ -4,6 +4,7 @@ import SearchHeader from "./SearchHeader";
 import CardList from "./../components/Lists/CardList";
 import styles from "./searchResultsScreen.module.css";
 import Placeholder from "../components/Placeholder/Placeholder";
+import Preloader from './../components/Preloader/Preloader';
 
 class SearchResultsScreen extends React.Component {
   constructor(props) {
@@ -16,13 +17,10 @@ class SearchResultsScreen extends React.Component {
     return { search_results: props.search_results };
   }
 
-  componentWillUnmount() {
-    //TODO: обнуление результатов поиска
-    this.state.search_results = undefined;
-    console.log("UNMOUNTING", this.state.search_results);
-  }
-
   render() {
+    if (this.props.isPending) {
+      return <Preloader />;
+    }
     return (
       <div className={styles.searchResultsScreen}>
         <SearchHeader />
@@ -39,6 +37,7 @@ class SearchResultsScreen extends React.Component {
 const mapStateToProps = (state) => {
   return {
     search_results: state.search.search_results,
+    isPending: state.search.is_pending,
   };
 };
 export default connect(mapStateToProps)(SearchResultsScreen);
