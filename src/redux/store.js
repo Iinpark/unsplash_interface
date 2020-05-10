@@ -6,6 +6,7 @@ import { photoReducer } from "./photoReducer";
 //redux-persist. for saving state into localStorage
 import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
+import { PhotosScreenReducer } from "./PhotosScreenReducer";
 
 const persistConfig = {
   key: "root",
@@ -13,22 +14,16 @@ const persistConfig = {
   blacklist: ["photos"],
 };
 
-
-
 const rootReducer = combineReducers({
   search: searchReducer,
   favorites: favoritesReducer,
   photos: photoReducer,
+  photosScreen: PhotosScreenReducer,
 });
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-// export let Store = createStore(
-//   rootReducer,
-//   composeEnhancer(applyMiddleware(thunk))
-// );
-
-export default  () => {
+export default () => {
   let store = createStore(
     persistedReducer,
     composeEnhancer(applyMiddleware(thunk))

@@ -43,6 +43,9 @@ class PhotosScreen extends React.PureComponent {
   }
 
   render() {
+    if (this.props.isCurrentPhotoPending) {
+      return <Preloader />
+    }
     console.log("PHOTOS SCREEN", this.props.currentPhoto);
     const json = this.props.currentPhoto;
     const user = json?.user;
@@ -101,9 +104,10 @@ class PhotosScreen extends React.PureComponent {
 
 const mapState = (state) => {
   return {
-    currentPhoto: state.photos.currentPhoto,
-    relatedPhotos: state.photos.relatedPhotos,
-    isRelatedPhotosPending: state.photos.isRelatedPhotosPending,
+    currentPhoto: state.photosScreen.currentPhoto,
+    relatedPhotos: state.photosScreen.relatedPhotos,
+    isRelatedPhotosPending: state.photosScreen.isRelatedPhotosPending,
+    isCurrentPhotoPending: state.photosScreen.isCurrentPhotoPending,
   };
 };
 const mapDispatch = (dispatch) => {

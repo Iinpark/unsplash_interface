@@ -23,10 +23,6 @@ export const photoActions = {
   fetchSuccess: (photos) => {
     return { type: types.FETCH_SUCCESS, photos: photos };
   },
-  setCurrentPhotoSuccess: (photo) => {
-    return { type: types.SET_CURRENT_PHOTO_SUCCESS, currentPhoto: photo };
-  },
-
   fetchAllPhotos: (page = 1) => {
     return (dispatch) => {
       UNAPI.photos(page)
@@ -37,31 +33,6 @@ export const photoActions = {
           alert(error);
         });
     };
-  },
-  setCurrentPhoto: (id) => {
-    return (dispatch) => {
-      UNAPI.getPhoto(id).then((json) => {
-        dispatch(
-          photoActions.setCurrentPhotoSuccess(json),
-          dispatch(photoActions.getRelatedPhotos(json.alt_description))
-        );
-      });
-    };
-  },
-
-  getRelatedPhotos: (keyword) => {
-    return (dispatch) => {
-      dispatch(photoActions.getRelatedPhotosPending());
-      UNAPI.searchPhotos(keyword).then((response) => {
-        dispatch(photoActions.getRelatedPhotosSuccess(response.results));
-      });
-    };
-  },
-  getRelatedPhotosSuccess: (photos) => {
-    return { type: types.GET_RELATED_PHOTOS_SUCCESS, relatedPhotos: photos };
-  },
-  getRelatedPhotosPending: () => {
-    return { type: types.GET_RELATED_PHOTOS_PENDING };
   },
   increasePage: () => {
     _cp = _cp + 1;
@@ -75,11 +46,7 @@ const initialState = {
   //list of all photos on HomeScreen | array
   allPhotos: undefined,
   currentPage: 1,
-  //a photo that user currently viewing on PhotosScreen | object
-  currentPhoto: undefined,
-  relatedPhotos: undefined,
-  isRelatedPhotosPending: true,
-  isCurrentPhotoPending: null
+
 };
 
 export const photoReducer = (state = initialState, action) => {
@@ -88,19 +55,6 @@ export const photoReducer = (state = initialState, action) => {
       return {
         ...state,
         allPhotos: [...new Set([...(state.allPhotos || []), ...action.photos])],
-      };
-
-    case types.SET_CURRENT_PHOTO_SUCCESS:
-      return {
-        ...state,
-        currentPhoto: action.currentPhoto,
-      };
-
-    case types.GET_RELATED_PHOTOS_SUCCESS:
-      return {
-        ...state,
-        relatedPhotos: action.relatedPhotos,
-        isRelatedPhotosPending: false,
       };
     case types.INCREASE_PAGE:
       return {
