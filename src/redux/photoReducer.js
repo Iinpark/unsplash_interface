@@ -30,7 +30,11 @@ export const photoActions = {
           dispatch(photoActions.fetchSuccess(resp));
         })
         .catch((error) => {
-          alert(error);
+          alert(`
+          Если вы видите это сообщение, значит мы исчерпали лимит запросов. 
+          Unsplash не позволяет делать более 50 запросов на сервер в час.
+          Количество запросов отправленых с этого  клиента: ${page}
+      `);
         });
     };
   },
@@ -46,7 +50,6 @@ const initialState = {
   //list of all photos on HomeScreen | array
   allPhotos: undefined,
   currentPage: 1,
-
 };
 
 export const photoReducer = (state = initialState, action) => {
