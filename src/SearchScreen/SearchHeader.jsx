@@ -13,6 +13,7 @@ class SearchHeader extends React.Component {
     this.state = {
       collectionsList: undefined,
       searchKeyword: "",
+      search_history_list: "",
     };
   }
 
@@ -23,12 +24,15 @@ class SearchHeader extends React.Component {
       });
       this.setState({ collectionsList: titles });
     });
+    this.setState({ search_history_list: this.props.search_history_list });
   }
 
-  viewCollection() {
-    //TODO:навигируем на <CollectionPhotoList />;
-    // и прокидываем туда пропс с json объектом
+  doSearchFromKeyword(keyword) {
+    this.setState({ searchKeyword: keyword }, () => {
+      this.handleEnter();
+    });
   }
+
   handleEnter() {
     this.props.doSearch(this.state.searchKeyword);
   }
@@ -49,7 +53,11 @@ class SearchHeader extends React.Component {
         </form>
         <hr size="10" color="white" width="80%" />
         <div className={styles.collectionsList}>
-          {/* TODO:Сделать чипсы с результатами поиска <HorizontalTextList data={this.state.collectionsList} /> */}
+          {/* TODO:Сделать чипсы с результатами поиска */}
+          <HorizontalTextList
+            data={this.state.search_history_list}
+            doSearchFromKeyword={this.doSearchFromKeyword.bind(this)}
+          />
         </div>
       </div>
     );
@@ -60,6 +68,7 @@ const mapStateToProps = (state) => {
   return {
     search_results: state.search.search_results,
     is_pending: state.search.is_pending,
+    search_history_list: state.search.search_keywords,
   };
 };
 

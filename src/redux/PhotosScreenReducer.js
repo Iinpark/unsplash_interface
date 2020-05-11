@@ -79,6 +79,6 @@ export const PhotosScreenReducer = (state = initialState, action) => {
     case types.SET_CURRENT_PHOTO_PENDING:
       return { ...state, isCurrentPhotoPending: true };
     default:
-      return state;
+      return {...state};
   }
 };

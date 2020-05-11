@@ -18,7 +18,7 @@ export const searchActions = {
     return { type: types.SEARCH_SUCCESS, results: response.results };
   },
   searchFailure: () => {
-    return { type: types.SEARCH_NO_MATHCES };
+    return { type: types.SEARCH_FAILURE };
   },
   searchPending: () => {
     return { type: types.SEARCH_PENDING };
@@ -74,11 +74,11 @@ export const searchReducer = (state = initialState, action) => {
       };
 
     case types.ADD_SEARCH_KEYWORD:
-      let copyKeywords = [...state.search_keywords];
-      copyKeywords.push(keyword);
+      let copyKeywords = new Set([...state.search_keywords]);
+      copyKeywords.add(keyword);
       return {
         ...state,
-        search_keywords: copyKeywords,
+        search_keywords: [...copyKeywords],
       };
 
     default:

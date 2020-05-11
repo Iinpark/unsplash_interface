@@ -1,18 +1,21 @@
 import React from "react";
 import TextListItem from "./../TextListItem/TextListItem";
 import { connect } from "react-redux";
+import styles from "./HorizontalTextList.module.css";
 
-export default class HorizontalTextList extends React.PureComponent {
+export default class HorizontalTextList extends React.Component {
   render() {
-      console.log('H TEXT LIST', this.props);
     return (
-      <div>
+      <ul className={styles.list}>
         {this.props.data
-          ? this.props.data.map(item => (
-              <TextListItem itemTitle={item} />
+          ? this.props.data.map((item) => (
+              <TextListItem
+                itemTitle={item}
+                doSearchFromKeyword={this.props.doSearchFromKeyword}
+              />
             ))
           : "Ничего нет"}
-      </div>
+      </ul>
     );
   }
 }
