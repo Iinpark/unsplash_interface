@@ -1,4 +1,13 @@
 .listItem {
-    margin: 5px;
-    display: inline-block;
+  margin: 5px;
+  display: inline-block;
+}
+
+.button {
+  border: none;
+  background-color: transparent;
+  color: white;
+}
+.button:hover {
+  cursor: pointer;
 }

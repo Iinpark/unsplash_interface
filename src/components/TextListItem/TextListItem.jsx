@@ -4,7 +4,8 @@ import styles from "./textListItem.module.css";
 const TextListItem = ({ itemTitle, doSearchFromKeyword }) => {
   return (
     <li className={styles.listItem}>
-      <button
+      <button 
+      className={styles.button}
         onClick={() => {
           doSearchFromKeyword(itemTitle);
         }}
