@@ -1,12 +1,12 @@
-import React from "react";
-import { Provider } from "react-redux";
-import { BrowserRouter, HashRouter } from "react-router-dom";
-import "./App.css";
-import AppHeader from "./components/AppHeader/AppHeader";
+import React from 'react';
+import { Provider } from 'react-redux';
+import { BrowserRouter, HashRouter } from 'react-router-dom';
+import './App.css';
+import AppHeader from './components/AppHeader/AppHeader';
 // import { Store } from "./redux/store";
-import Store from "./redux/store";
-import { PersistGate } from "redux-persist/integration/react";
-import RootRouter from "./navigation/RootRouter";
+import Store from './redux/store';
+import { PersistGate } from 'redux-persist/integration/react';
+import RootRouter from './navigation/RootRouter';
 
 const { store, persistor } = Store();
 
@@ -24,18 +24,15 @@ function App() {
               <RootRouter />
               <footer className="footer">
                 <span>
-                  Developed by{" "}
+                  Developed by{' '}
                   <a
-                    href="https://vk.com/sultanesbolatov"
+                    href="https://t.me/sultanesbolatov"
                     target="blank"
-                    className="SultanEsbolatov"
-                  >
+                    className="SultanEsbolatov">
                     Sultan Esbolatov
                   </a>
                 </span>
-                <a href="https://youtu.be/A0FZIwabctw" target="blank">
-                  ⁕Made on Earth for Humans⁕
-                </a>
+                <span>⁕Made on Earth for Humans⁕</span>
               </footer>
             </div>
           </div>

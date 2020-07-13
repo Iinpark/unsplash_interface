@@ -42,6 +42,9 @@ const AppHeader = () => {
           <FontAwesomeIcon color="white" icon={faHeart} />
           <span>Избранное</span>
         </NavLink>
+        {
+        /*
+        ссылка на бесполезную страницу истории поиска
         <NavLink
           to="/history"
           className={styles.navigationButton}
@@ -50,7 +53,7 @@ const AppHeader = () => {
         >
           <FontAwesomeIcon color="white" icon={faHistory} />
           <span>История поиска</span>
-        </NavLink>
+        </NavLink> */}
       </div>
     </div>
   );
